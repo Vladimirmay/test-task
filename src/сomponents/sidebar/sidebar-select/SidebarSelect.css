@@ -1,3 +1,4 @@
-.select__arrow {
-  background-color: black;
+.select__wrapper {
+  width: 315px;
+  height: 48px;
 }

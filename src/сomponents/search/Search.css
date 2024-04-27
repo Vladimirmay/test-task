@@ -1,0 +1,25 @@
+.input__wrapper {
+  width: 315px;
+  height: 48px;
+  border: 1px solid #a4a6a9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  background: #f2f2f2;
+}
+.input__wrapper div {
+  display: flex;
+}
+.input__shape {
+}
+.input__search {
+  width: 100%;
+  height: 22px;
+  padding-left: 10px;
+  outline: none;
+  background: #f2f2f2;
+}
+.input__wrapper:hover {
+  border: 1px solid #111;
+}

@@ -1,14 +1,25 @@
 import "./SidebarSelect.css";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
 
 export default function SidebarSelect() {
   return (
     <div className="select__wrapper">
-      <select name="example">
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
-      </select>
-      <img src="./shape.svg" alt="arrow" className="select__arrow" />
+      <FormControl fullWidth>
+        <InputLabel id="status-select-label">Статус</InputLabel>
+        <Select
+          labelId="status-select-label"
+          id="status-select"
+          label="Status"
+          sx={{ height: 48, borderRadius: "8px" }}
+        >
+          <MenuItem value="Успешно обработан">Успешно обработан</MenuItem>
+          <MenuItem value="Обработан с ошибкой">Обработан с ошибкой</MenuItem>
+          <MenuItem value="Ожидание">Ожидание</MenuItem>
+        </Select>
+      </FormControl>
     </div>
   );
 }

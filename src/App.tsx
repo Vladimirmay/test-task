@@ -1,6 +1,11 @@
 import "./App.css";
 import Header from "./сomponents/header/Header";
 import Sidebar from "./сomponents/sidebar/Sidebar";
+import FileList from "./сomponents/file-list/FileList";
+import Search from "./сomponents/search/Search";
+import SidebarSelect from "./сomponents/sidebar/sidebar-select/SidebarSelect";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 
 function App() {
   return (
@@ -13,9 +18,20 @@ function App() {
             <h1>Импорт файлов</h1>
             <button className="import__file__btn">
               <img src="./Vector.svg" alt="add" />
-              Импорт
+              <p>Импорт</p>
             </button>
           </div>
+          <div className="filter__bar">
+            <Search />
+            <SidebarSelect />
+            <div>
+              <FormControlLabel
+                control={<Checkbox defaultChecked />}
+                label="Обработан"
+              />
+            </div>
+          </div>
+          <FileList />
         </div>
       </main>
     </>
