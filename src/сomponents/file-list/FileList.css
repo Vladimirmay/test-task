@@ -1,3 +1,7 @@
-.list__wrapper {
-  padding-top: 20px;
+.file__list {
+  margin-top: 10px;
+}
+.file__total {
+  margin-top: 20px;
+  color: #aaabad;
 }

@@ -1,25 +1,36 @@
-import "./SidebarSelect.css";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
+import "./SideBarSelect.css";
+import { useState } from "react";
 
-export default function SidebarSelect() {
+export default function SideBarSelect({
+  img,
+  desc,
+}: {
+  img: string;
+  desc: string;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [icon, setIcon] = useState("./shape-rotate.svg");
+
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+    setIcon(isOpen ? "./shape-rotate.svg" : "./shape.svg");
+  };
   return (
-    <div className="select__wrapper">
-      <FormControl fullWidth>
-        <InputLabel id="status-select-label">Статус</InputLabel>
-        <Select
-          labelId="status-select-label"
-          id="status-select"
-          label="Status"
-          sx={{ height: 48, borderRadius: "8px" }}
-        >
-          <MenuItem value="Успешно обработан">Успешно обработан</MenuItem>
-          <MenuItem value="Обработан с ошибкой">Обработан с ошибкой</MenuItem>
-          <MenuItem value="Ожидание">Ожидание</MenuItem>
-        </Select>
-      </FormControl>
-    </div>
+    <>
+      <div className="sidebar__item__wrapper" onClick={handleToggle}>
+        <div className="sidebar__item">
+          <img src={img} alt={desc} className="sidebar__item__icon" />
+          <p>{desc}</p>
+        </div>
+        <img src={icon} alt="vector" />
+      </div>
+      {isOpen && (
+        <div className="dropdown__list">
+          <p className="dropdown__list__item">Аналитика</p>
+          <p className="dropdown__list__item">Договоры</p>
+          <p className="dropdown__list__item">Импорт</p>
+        </div>
+      )}
+    </>
   );
 }

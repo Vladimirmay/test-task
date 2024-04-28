@@ -1,6 +1,7 @@
 .sidebar__wrapper {
-  width: 241px;
+  width: 20%;
   height: 100vh;
   box-shadow: 0px 10px 10px 0px #a6a8a933;
   background: #ffffff;
+  padding: 24px 16px 0 32px;
 }

@@ -1,0 +1,13 @@
+.list__item__header__wrapper {
+  width: 100%;
+  min-height: 40px;
+  margin-top: 10px;
+  display: grid;
+  align-items: center;
+  grid-template-columns: 0.5fr 2fr 2fr 2fr 3fr 3fr 0.5fr;
+  gap: 8px;
+  padding: 0 10px;
+  border-radius: 4px;
+  background: #fff;
+  font-weight: 600;
+}

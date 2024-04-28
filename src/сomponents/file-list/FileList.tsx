@@ -1,5 +1,8 @@
-import { useState, useEffect } from "react";
+import "./FileList.css";
 import ListItem from "./list-Item/ListItem";
+import FileListHeader from "./file-list-header/FileListHeader";
+import { format, parseISO } from "date-fns";
+import { useState, useEffect } from "react";
 
 export interface FileProps {
   id: number;
@@ -8,13 +11,15 @@ export interface FileProps {
   };
   status: {
     name: string;
+    color: string;
   };
   credits_count: number;
   created_at: string;
   created_by: {
-    full_name: string;
+    username: string;
   };
 }
+const apiDomain = import.meta.env.VITE_API_DOMAIN;
 
 export default function FileList() {
   const [data, setData] = useState<FileProps[]>([]);
@@ -22,7 +27,13 @@ export default function FileList() {
   useEffect(() => {
     try {
       const fetchData = async () => {
-        const response = await fetch("response.json");
+        let url;
+        if (apiDomain) {
+          url = `${apiDomain}`;
+        } else {
+          url = "response.json";
+        }
+        const response = await fetch(url);
         const data = await response.json();
         setData(data);
       };
@@ -32,29 +43,36 @@ export default function FileList() {
     }
   }, []);
 
+  const formatDate = (date: string) => {
+    return format(parseISO(date), "dd.MM.yyyy");
+  };
+
   return (
     <>
-      <ListItem
-        id="ID"
-        name="Название файла"
-        status="Статус"
-        created_at="Дата загрузки"
-        credits_count="Кол-во кредитных договоров"
-        uploaded_count="Загружено пользователем"
-        actions="Действия"
-      />
-
-      {data.map((file) => (
-        <ListItem
-          key={file.id}
-          id={file.id}
-          name={file.file.name}
-          status={file.status.name}
-          created_at={file.created_at}
-          credits_count={file.credits_count}
-          uploaded_count={file.created_by.full_name}
-        />
-      ))}
+      <FileListHeader />
+      <div className="file__list">
+        <div
+          style={{
+            maxHeight: data.length > 10 ? "400px" : "auto",
+            overflowY: data.length > 10 ? "auto" : "hidden",
+          }}
+        >
+          {data.map((file) => (
+            <ListItem
+              key={file.id}
+              id={file.id}
+              name={file.file.name}
+              status={file.status.name}
+              color={file.status.color}
+              created_at={formatDate(file.created_at)}
+              credits_count={file.credits_count}
+              uploaded_count={file.created_by.username}
+            />
+          ))}
+          {data.length === 0 && <p>Ничего не найдено</p>}
+        </div>
+        <p className="file__total">Всего строк: {data.length}</p>
+      </div>
     </>
   );
 }

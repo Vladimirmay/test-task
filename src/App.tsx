@@ -3,9 +3,9 @@ import Header from "./сomponents/header/Header";
 import Sidebar from "./сomponents/sidebar/Sidebar";
 import FileList from "./сomponents/file-list/FileList";
 import Search from "./сomponents/search/Search";
-import SidebarSelect from "./сomponents/sidebar/sidebar-select/SidebarSelect";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+import FilterSelect from "./сomponents/filter-select/FilterSelect";
+import ModalDonloadFile from "./сomponents/modal/ModalDonloadFile";
+import CheckBoxInput from "./сomponents/checkbox-input/CheckBoxInput";
 
 function App() {
   return (
@@ -16,21 +16,15 @@ function App() {
         <div className="content">
           <div className="import__file__wrapper">
             <h1>Импорт файлов</h1>
-            <button className="import__file__btn">
-              <img src="./Vector.svg" alt="add" />
-              <p>Импорт</p>
-            </button>
+            <ModalDonloadFile />
           </div>
           <div className="filter__bar">
             <Search />
-            <SidebarSelect />
-            <div>
-              <FormControlLabel
-                control={<Checkbox defaultChecked />}
-                label="Обработан"
-              />
-            </div>
+            <FilterSelect />
+
+            <CheckBoxInput desc="Обработан" />
           </div>
+
           <FileList />
         </div>
       </main>
