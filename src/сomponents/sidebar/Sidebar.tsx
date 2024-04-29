@@ -1,18 +1,18 @@
 import "./Sidebar.css";
-import SidebarSelect from "./sidebar-select/SideBarSelect";
+import SideBarSelect from "./sidebar-select/SideBarSelect";
 
 export default function Sidebar() {
   return (
     <div className="sidebar__wrapper">
-      <SidebarSelect img="./select-icon/organizations.svg" desc="Организации" />
-      <SidebarSelect img="./select-icon/staff.svg" desc="Персонал" />
-      <SidebarSelect img="./select-icon/credit.svg" desc="Кредиты" />
-      <SidebarSelect
+      <SideBarSelect img="./select-icon/organizations.svg" desc="Организации" />
+      <SideBarSelect img="./select-icon/staff.svg" desc="Персонал" />
+      <SideBarSelect img="./select-icon/credit.svg" desc="Кредиты" />
+      <SideBarSelect
         img="./select-icon/сorrespondence.svg"
         desc="Корреспонденция"
       />
-      <SidebarSelect img="./select-icon/job.svg" desc="Работа" />
-      <SidebarSelect img="./select-icon/settings.svg" desc="Настройки" />
+      <SideBarSelect img="./select-icon/job.svg" desc="Работа" />
+      <SideBarSelect img="./select-icon/settings.svg" desc="Настройки" />
     </div>
   );
 }
