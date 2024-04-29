@@ -1,11 +1,11 @@
 import "./App.css";
-import Header from "./сomponents/header/Header";
-import Sidebar from "./сomponents/sidebar/Sidebar";
-import FileList from "./сomponents/file-list/FileList";
-import Search from "./сomponents/search/Search";
-import FilterSelect from "./сomponents/filter-select/FilterSelect";
-import ModalDownloadFile from "./сomponents/modal/ModalDownloadFile";
-import CheckBoxInput from "./сomponents/checkbox-input/CheckBoxInput";
+import Header from "./components/header/Header";
+import Sidebar from "./components/sidebar/Sidebar";
+import FileList from "./components/file-list/FileList";
+import Search from "./components/search/Search";
+import FilterSelect from "./components/filter-select/FilterSelect";
+import ModalDownloadFile from "./components/modal/ModalDownloadFile";
+import CheckBoxInput from "./components/checkbox-input/CheckBoxInput";
 
 function App() {
   return (
