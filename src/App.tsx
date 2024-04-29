@@ -4,7 +4,7 @@ import Sidebar from "./сomponents/sidebar/Sidebar";
 import FileList from "./сomponents/file-list/FileList";
 import Search from "./сomponents/search/Search";
 import FilterSelect from "./сomponents/filter-select/FilterSelect";
-import ModalDonloadFile from "./сomponents/modal/ModalDonloadFile";
+import ModalDownloadFile from "./сomponents/modal/ModalDownloadFile";
 import CheckBoxInput from "./сomponents/checkbox-input/CheckBoxInput";
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
         <div className="content">
           <div className="import__file__wrapper">
             <h1>Импорт файлов</h1>
-            <ModalDonloadFile />
+            <ModalDownloadFile />
           </div>
           <div className="filter__bar">
             <Search />

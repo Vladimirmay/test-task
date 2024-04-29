@@ -21,12 +21,20 @@ export default function ListItem({
   uploaded_count,
   color,
 }: ListItemProps) {
-  const handleDownloadClick = () => {
-    axios.get(`/api/cessions/registries/${id}/export`);
+  const handleDownloadClick = async () => {
+    try {
+      axios.get(`/api/cessions/registries/${id}/export`);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  const handleDeleteClick = () => {
-    axios.delete(`/api/cessions/registries/${id}/`);
+  const handleDeleteClick = async () => {
+    try {
+      axios.delete(`/api/cessions/registries/${id}/`);
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <div className="list__item__wrapper">

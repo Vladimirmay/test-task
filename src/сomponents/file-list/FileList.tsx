@@ -46,15 +46,15 @@ export default function FileList() {
   const formatDate = (date: string) => {
     return format(parseISO(date), "dd.MM.yyyy");
   };
-
+  const VISIBLE_REGISTERS = 10;
   return (
     <>
       <FileListHeader />
       <div className="file__list">
         <div
           style={{
-            maxHeight: data.length > 10 ? "400px" : "auto",
-            overflowY: data.length > 10 ? "auto" : "hidden",
+            maxHeight: data.length > VISIBLE_REGISTERS ? "400px" : "auto",
+            overflowY: data.length > VISIBLE_REGISTERS ? "auto" : "hidden",
           }}
         >
           {data.map((file) => (

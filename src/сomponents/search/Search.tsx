@@ -1,8 +1,12 @@
 import "./Search.css";
 import { useState } from "react";
 
+const DEFAULT_STATE = {
+  SEARCH: "",
+};
+
 export default function Search() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(DEFAULT_STATE.SEARCH);
   return (
     <div className="input__wrapper">
       <div>

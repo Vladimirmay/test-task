@@ -8,9 +8,13 @@
   padding: 0 10px;
   cursor: pointer;
 }
+
 .sidebar__item__wrapper:hover {
   background: #42b277;
   color: #fff;
+}
+.sidebar__item__wrapper:hover img {
+  filter: brightness(0) invert(1);
 }
 
 .sidebar__item {

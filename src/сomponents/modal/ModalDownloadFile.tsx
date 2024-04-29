@@ -1,3 +1,4 @@
+// import CheckBoxInput from "./сomponents/checkbox-input/CheckBoxInput";
 import {
   Box,
   Typography,
@@ -11,19 +12,23 @@ import {
   Checkbox,
   styled,
 } from "@mui/material";
-import "./ModalDonloadFile.css";
-// import CheckBoxInput from "./сomponents/checkbox-input/CheckBoxInput";
+import "./ModalDownloadFile.css";
 import { useState } from "react";
+import ModalInterFileName from "./modal-inter-file-name/ModalInterFileName";
 
-export default function ModalDonloadFile() {
-  const [open, setOpen] = useState(false);
+const DEFAULT_STATE = {
+  IS_OPEN: false,
+};
+
+export default function ModalDownloadFile() {
+  const [isOpen, setIsOpen] = useState(DEFAULT_STATE.IS_OPEN);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setIsOpen(true);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setIsOpen(false);
   };
 
   const VisuallyHiddenInput = styled("input")({
@@ -45,7 +50,7 @@ export default function ModalDonloadFile() {
         <p>Импорт</p>
       </button>
       <Dialog
-        open={open}
+        open={isOpen}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
@@ -102,21 +107,35 @@ export default function ModalDonloadFile() {
               </Button>
             </Box>
           </DialogContentText>
-          <Box sx={{ mt: "10px" }}>
-            <div>
-              <FormControlLabel control={<Checkbox />} label="Проверить ИНН" />
-              {/*  наверное баг VSCODE, он не видет именно здесь импорт моего */}
 
-              {/* <CheckBoxInput desc="Проверить ИНН" /> */}
-            </div>
-            <div>
-              <FormControlLabel
-                control={<Checkbox />}
-                label="Проверить адрес"
-              />
-              {/* аналогично */}
-              {/* <CheckBoxInput desc="Проверить адрес" /> */}
-            </div>
+          <Box
+            sx={{
+              mt: "10px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <Box>
+              <div>
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Проверить ИНН"
+                />
+                {/*  наверное баг VSCODE, он не видет именно здесь импорт моего CheckBoxInput*/}
+
+                {/* <CheckBoxInput desc="Проверить ИНН" /> */}
+              </div>
+              <div>
+                <FormControlLabel
+                  control={<Checkbox />}
+                  label="Проверить адрес"
+                />
+                {/* аналогично */}
+                {/* <CheckBoxInput desc="Проверить адрес" /> */}
+              </div>
+            </Box>
+            <ModalInterFileName />
           </Box>
         </DialogContent>
         <DialogActions>
@@ -147,6 +166,9 @@ export default function ModalDonloadFile() {
                 color: "white",
                 textTransform: "none",
                 borderRadius: "8px",
+                "&:hover": {
+                  backgroundColor: "#42B264",
+                },
               }}
               onClick={handleClose}
             >

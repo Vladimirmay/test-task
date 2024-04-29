@@ -1,6 +1,11 @@
 import "./SideBarSelect.css";
 import { useState } from "react";
 
+export const DEFAULT_STATE = {
+  IS_OPEN: false,
+  ICON: "./shape-rotate.svg",
+};
+
 export default function SideBarSelect({
   img,
   desc,
@@ -8,8 +13,8 @@ export default function SideBarSelect({
   img: string;
   desc: string;
 }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [icon, setIcon] = useState("./shape-rotate.svg");
+  const [isOpen, setIsOpen] = useState(DEFAULT_STATE.IS_OPEN);
+  const [icon, setIcon] = useState(DEFAULT_STATE.ICON);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -22,7 +27,7 @@ export default function SideBarSelect({
           <img src={img} alt={desc} className="sidebar__item__icon" />
           <p>{desc}</p>
         </div>
-        <img src={icon} alt="vector" />
+        <img src={icon} alt="select-icon" />
       </div>
       {isOpen && (
         <div className="dropdown__list">
