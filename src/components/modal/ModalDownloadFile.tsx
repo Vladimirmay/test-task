@@ -1,4 +1,4 @@
-// import CheckBoxInput from "./сomponents/checkbox-input/CheckBoxInput";
+import CheckBoxInput from "../checkbox-input/CheckBoxInput";
 import {
   Box,
   Typography,
@@ -8,8 +8,6 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
-  FormControlLabel,
-  Checkbox,
   styled,
 } from "@mui/material";
 import "./ModalDownloadFile.css";
@@ -110,29 +108,18 @@ export default function ModalDownloadFile() {
 
           <Box
             sx={{
-              mt: "10px",
+              mt: "20px",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
             }}
           >
-            <Box>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: "10px" }}>
               <div>
-                <FormControlLabel
-                  control={<Checkbox />}
-                  label="Проверить ИНН"
-                />
-                {/*  наверное баг VSCODE, он не видет именно здесь импорт моего CheckBoxInput*/}
-
-                {/* <CheckBoxInput desc="Проверить ИНН" /> */}
+                <CheckBoxInput desc="Проверить ИНН" />
               </div>
               <div>
-                <FormControlLabel
-                  control={<Checkbox />}
-                  label="Проверить адрес"
-                />
-                {/* аналогично */}
-                {/* <CheckBoxInput desc="Проверить адрес" /> */}
+                <CheckBoxInput desc="Проверить адрес" />
               </div>
             </Box>
             <ModalInterFileName />
